@@ -65,7 +65,7 @@ func RegisterCategory(s *discordgo.Session) {
 	}
 
 	for _, command := range commands {
-		s.ApplicationCommandCreate(os.Getenv(constants.DISCORD_APP_ID), os.Getenv(constants.GUILD_ID), command)
+		s.ApplicationCommandCreate(os.Getenv(constants.DISCORD_APP_ID), "", command)
 	}
 
 	s.AddHandler(commandListener)
