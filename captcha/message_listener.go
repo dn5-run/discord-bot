@@ -20,6 +20,7 @@ func messageListener(s *discordgo.Session, e *discordgo.MessageCreate) {
 
 	if key != e.Content {
 		s.ChannelMessageDelete(e.ChannelID, e.ID)
+		return
 	}
 
 	s.GuildMemberRoleAdd(e.GuildID, e.Author.ID, os.Getenv(CAPTCHA_AUTH_ID))
